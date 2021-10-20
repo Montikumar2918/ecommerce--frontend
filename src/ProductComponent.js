@@ -64,10 +64,11 @@ function ProductComponent () {
     const [productList, setProductList] = useState([])
     const [cart, setCart] = useState(0)
 
-    useEffect (async ()=> {
+    useEffect (() => { async function fetchMyAPI() {
         var response = await axios.get('http://localhost:4000/product/getproduct')
         setProductList(response.data);
         updateCart(response)
+    } fetchMyAPI()
     }, [])
 
     const updateProduct = async (id, quantity) => {
