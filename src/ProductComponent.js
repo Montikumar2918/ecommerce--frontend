@@ -65,17 +65,17 @@ function ProductComponent () {
     const [cart, setCart] = useState(0)
 
     useEffect (() => { async function fetchMyAPI() {
-        var response = await axios.get('http://localhost:4000/product/getproduct')
+        var response = await axios.get('https://blooming-stream-66576.herokuapp.com/product/getproduct')
         setProductList(response.data);
         updateCart(response)
     } fetchMyAPI()
     }, [])
 
     const updateProduct = async (id, quantity) => {
-        await axios.put(`http://localhost:4000/product/updateproduct/${id}`, {
+        await axios.put(`https://blooming-stream-66576.herokuapp.com/product/updateproduct/${id}`, {
             userQuantity : quantity
         })
-        var response = await axios.get('http://localhost:4000/product/getproduct')
+        var response = await axios.get('https://blooming-stream-66576.herokuapp.com/product/getproduct')
         setProductList(response.data);
         updateCart(response)
     }
